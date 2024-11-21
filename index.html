@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVID-10M</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/carousel.css">
+</head>
+<body>
+    <h1>VIVID-10M: A Dataset and Baseline for Versatile and Interactive Video Local Editing</h1>
+
+    <!-- <div class="metadata">
+        <p>
+            Jiahao Hu<sup>1</sup>, Tianxiong Zhong<sup>2</sup>, Xuebo Wang<sup>3</sup>, Boyuan Jiang<sup>3</sup>, Xingye Tian<sup>3</sup>, Fei Yang<sup>3</sup>, Pengfei Wan<sup>3</sup>, Di Zhang<sup>3</sup>
+        </p>
+        <p style="color: #93a1b3;">
+            <sup>1</sup>Northwest Polytechnical University Xi'an, <sup>2</sup>Beijing Institute of Technology, <sup>3</sup>Kuaishou
+        </p>
+    </div> -->
+
+    <div class="button-container">
+        <!-- arXiv Button -->
+        <a href="https://arxiv.org" target="_blank" class="button">
+            <img src="asserts/icons/pdf.svg">
+            arXiv
+        </a>
+        <!-- GitHub Button -->
+        <a href="https://github.com" target="_blank" class="button">
+            <img src="asserts/icons/github-fill.svg">
+            GitHub
+        </a>
+        <!-- Hugging Face Button -->
+        <a href="https://huggingface.co" target="_blank" class="button">
+            <img src="asserts/icons/huggingface.svg">
+            Hugging Face
+        </a>
+    </div>
+
+    <h2 style="padding-top: 30px;">「VIVID」Video Local Editing Model</h2>
+    <p class="desc"> VIVID is a versatile and interactive video local editing model trained on VIVID-10M dataset, which supports entity addition, modifiation, and deletion. <br>Given a video, VIVID generates high quality, harmonious contents within the mask sequence, guided by the semantics of local caption.</p>
+    
+    <div class="one-page-box">
+        <div class="carousel">
+            <div style="display: flex; margin-bottom: 20px;">
+                <p class="tiny-title pc-only" style="margin: auto;">Inputs</p>
+                <p class="tiny-title pc-only" style="margin: auto;">Edited Video</p>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00023284/hb_mask_clip0000_instance0001_ori_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>A sleek, circular UFO hovers in the air, its metallic surface gleaming with a futuristic sheen. The round body is smooth and streamlined, with a slightly domed top and a series of glowing lights around its outer edge.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00019472/hb_mask_clip0000_instance0001_ori_mask_dilated.mp4" type="video/mp4">
+                    </video>
+                    <p>A woman is wearing a stylish crossbody bag that rests comfortably against her side. The bag features a chic design, made from soft leather, and is adorned with metallic accents and decorative stitching.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00174833/hb_mask_clip0000_instance0001_convexHull_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>A pillow rests quietly on the sofa, made of warm velvet fabric in a gentle light blue color. Its surface is adorned with delicate white floral patterns, and the edges feature meticulous stitching. The pillow has a classic square shape and a moderate size, with a few subtle wrinkles that add character.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00014937/hb_mask_clip0000_instance0000_ori_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>A rock star signs an autograph for a fan. Dressed in edgy rock attire, with tattoos and jewelry adding to their iconic look.Enthusiastic fans were blocked behind the fence and stretched out their markers and notebooks, asking for the star's autograph.The star holds a marker and carefully signs on the notebooks.Some security personnel stood between the celebrities and the bus, carefully observing the surroundings.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00115965/hb_mask_clip0000_instance0002_ori_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>A small pond is situated at the center of the indoor space, its water crystal clear, with gentle ripples occasionally disturbed by a few golden koi swimming leisurely, adding vitality to the scene. The edges of the pond are adorned with natural stone, covered in moss and small plants, as if weathered by time. Floating on the water's surface are several white water lilies, their petals shimmering in the sunlight and emitting a subtle fragrance.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00124549/hb_mask_clip0000_instance0000_convexHull_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>The black sunglasses showcase a trendy oversized design, crafted from lightweight and durable plastic. Their chic cat-eye shape flatters various face types, while the deep, reflective black lenses provide UV protection and a touch of allure. The arms are slightly tapered and feature subtle geometric patterns, enhancing their modern appeal.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00125436/hb_mask_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+                    </video>
+                    <p>The yellow sports car features a streamlined design, with a low profile and sharp lines that convey a sporty feel. The front is equipped with bold headlights and a distinctive grille, while the rear includes a stylish spoiler that enhances its performance appearance.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00162819/hb_mask_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+                    </video>
+                    <p>A tiger skin is held in a woman's hand, with distinct patterns and rich colors that showcase the beauty and power of nature. The edges of the tiger skin are neatly trimmed, and she gently caresses it, her fingertips gliding over the soft fur.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00053482/hb_mask_clip0000_remove0000_convexHull_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>Remove objects and generate areas that blend with the background.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00072338/hb_mask_clip0000_remove0000_ori_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>Remove objects and generate areas that blend with the background.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00105706/hb_mask_clip0000_remove0000_convexHull_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>Remove objects and generate areas that blend with the background.</p>
+                </div>
+                <div class="carousel-item">
+                    <video loop muted>
+                        <source src="asserts/videos/long_videos/00112072/hb_mask_clip0000_remove0000_ori_mask.mp4" type="video/mp4">
+                    </video>
+                    <p>Remove objects and generate areas that blend with the background.</p>
+                </div>
+            </div>
+            <!-- 圆点导航和切换按钮 -->
+            <div class="carousel-ctrl">
+                <button class="carousel-btn prev" onclick="prevSlide()">
+                    <img src="asserts/icons/prev.svg">
+                </button>
+                <div class="dots-container"></div>
+                <button class="carousel-btn next" onclick="nextSlide()">
+                    <img src="asserts/icons/next.svg">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight">
+        <h2>「KIVE」Keyframe-guided Interactive Video Editing</h2>
+        <p class="desc">
+            KIVE enables users to iteratively edit keyframes and propagate it to other frames, thereby reducing latency in achieving desired outcomes.<br>Furthermore, the KIVE mechanism supports local editing of long videos by using the last frame of one edited clip as the keyframe for the next.
+        </p>
+        <div class="figure-container">
+            <img style="max-width: 480px; width: 100%;" source src="asserts/figures/KIVE.png"></img>
+            <img style="max-width: 480px; width: 100%;" source src="asserts/figures/long_video.png"></img>
+        </div>
+        <p class="desc">
+            For example, if we want to edit a video as a Halloween promotional video ...
+        </p>
+
+        <h3>Naive Video Editing Pipeline - <span style="color: #E4473C;">34.2PFLOPs</span></h3>
+        <div class="video-container" style="margin-top: 0px;">
+            <div class="video-item">
+                <p class="tiny-title">1. Draw Masks</p>
+                <video autoplay loop muted>
+                    <source src="asserts/videos/kive/00067912/hb_input_mask_clip0000_instance0002_ori_mask.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-item">
+                <p class="tiny-title">2. Video Editing</p>
+                <video loop muted>
+                    <source src="asserts/videos/kive/00067912/hb_kive_mask_clip0000_instance0002_ori_mask_no_flame.mp4" type="video/mp4">
+                </video>
+                <p class="important-desc">17.1 PFLOPs</p>
+                <p>A skeleton is staring ahead.</p>
+            </div>
+            <div class="video-item">
+                <p class="tiny-title">3. Video Editing</p>
+                <video loop muted>
+                    <source src="asserts/videos/kive/00067912/hb_kive_mask_clip0000_instance0002_ori_mask.mp4" type="video/mp4">
+                </video>
+                <p class="important-desc">17.1 PFLOPs</p>
+                <p>A skeleton is staring ahead, with flames flickering in his eyes.</p>
+            </div>
+        </div>
+
+        <h3>KIVE Pipeline - <span style="color: #6DE2B4;">20.1PFLOPs</span></h3>
+        <div class="video-container" style="margin-top: 0px;">
+            <div class="video-item">
+                <p class="tiny-title">1. Draw Masks</p>
+                <video autoplay loop muted>
+                    <source src="asserts/videos/kive/00067912/hb_input_mask_clip0000_instance0002_ori_mask.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-item">
+                <p class="tiny-title">2. Keyframe Editing</p>
+                <img source src="asserts/videos/kive/00067912/demo_key_mask_clip0000_instance0002_ori_mask_no_flame.png"></img>
+                <p class="important-desc">1.5 PFLOPs</p>
+                <p>A skeleton is staring ahead.</p>
+            </div>
+            <div class="video-item">
+                <p class="tiny-title">3. Keyframe Editing</p>
+                <img source src="asserts/videos/kive/00067912/demo_key_mask_clip0000_instance0002_ori_mask.png"></img>
+                <p class="important-desc">1.5 PFLOPs</p>
+                <p>A skeleton is staring ahead, with flames flickering in his eyes.</p>
+            </div>
+            <div class="video-item">
+                <p class="tiny-title">4. Edits Propagation</p>
+                <video loop muted>
+                    <source src="asserts/videos/kive/00067912/hb_kive_mask_clip0000_instance0002_ori_mask.mp4" type="video/mp4">
+                </video>
+                <p class="important-desc">17.1 PFLOPs</p>
+                <p>A skeleton is staring ahead, with flames flickering in his eyes.</p>
+            </div>
+        </div>
+    </div>
+    
+    <h2>「VIVID-10M」Video Local Editing Dataset</h2>
+    <p class="desc">VIVID-10M is the first large-scale hybrid image-video local editing dataset aimed at reducing data construction and model training costs.<br>VIIVD-10M comprises 9.7M samples that encompass a wide range of video editing tasks.</p>
+    <img style="width: 90%; max-width: 960px; padding-left: 5%; padding-right: 5%;" source src="asserts/figures/pipe.png"></img>
+    <div class="video-container">
+        <div class="video-item">
+            <p class="tiny-title">Ground Truth</p>
+            <video autoplay loop muted>
+                <source src="asserts/videos/dataset/00177989/source_video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title">Mask Sequence</p>
+            <video muted>
+                <source src="asserts/videos/dataset/00177989/hb_mask_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title">Masked Video</p>
+            <video muted>
+                <source src="asserts/videos/dataset/00177989/hb_croped_video_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title">Local Caption</p>
+            <p style="text-align: left;">
+                a woman dressed in a black blazer adorned with golden buttons, complemented by a patterned scarf around her neck. She has short blonde hair and is wearing glasses. The background is textured with ornate designs. She holds a small object in her right hand and appears to be speaking or presenting. Her attire and overall demeanor suggest a formal or professional setting.
+            </p>
+        </div>
+    </div>
+    <div class="video-container">
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Ground Truth</p>
+            <video autoplay loop muted>
+                <source src="asserts/videos/dataset/00049967/source_video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Mask Sequence</p>
+            <video muted>
+                <source src="asserts/videos/dataset/00049967/hb_mask_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Masked Video</p>
+            <video muted>
+                <source src="asserts/videos/dataset/00049967/hb_croped_video_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Local Caption</p>
+            <p style="text-align: left;">
+                a sculpture statue of a dynamic, white marble figure, likely representing a classical or mythological character, with its right arm raised and head turned upward as if capturing a divine moment. The intricate detailing includes flowing drapery that adds a sense of movement, emphasizing the figure's dramatic pose. The statue is mounted on a pedestal, which is placed prominently in a room with various paintings and a red wall, creating a harmonious blend of art forms.
+            </p>
+        </div>
+    </div>
+    <div class="video-container">
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Ground Truth</p>
+            <video autoplay loop muted>
+                <source src="asserts/videos/dataset/00117663/source_video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Mask Sequence</p>
+            <video muted>
+                <source src="asserts/videos/dataset/00117663/hb_mask_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Masked Video</p>
+            <video muted>
+                <source src="asserts/videos/dataset/00117663/hb_croped_video_clip0000_instance0000_ori_mask_dilated.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <p class="tiny-title mobile-only">Local Caption</p>
+            <p style="text-align: left;">
+                a cat with a predominantly black and white coat, possibly a tabby, running energetically in what seems to be a play area designed for pets. The area has green artificial turf flooring and includes various toys and small pieces of furniture, which are positioned randomly around the space. The cat's coat exhibits a classic tabby pattern with stripes and patches of solid fur, and it appears to be engaged in a lively activity within this environment.
+            </p>
+        </div>
+    </div>
+
+    <div class="highlight" style="margin-top: 100px;">
+        <h2>Abstract</h2>
+        <p class="abstract">
+            Diffusion-based image editing models have made remarkable progress in recent years.
+            However, achieving high-quality video editing remains a significant challenge.
+            One major hurdle is the absence of open-source, large-scale video editing datasets based on real-world data, as constructing such datasets is both time-consuming and costly.
+            Moreover, video data requires a significantly larger number of tokens for representation, which substantially increases the training costs for video editing models.
+            Lastly, current video editing models offer limited interactivity, often making it difficult for users to express their editing requirements effectively in a single attempt.
+            To address these challenges, this paper introduces a dataset VIVID-10M and a baseline model VIVID.
+            VIVID-10M is the first large-scale hybrid image-video local editing dataset aimed at reducing data construction and model training costs, which comprises 9.7M samples that encompass a wide range of video editing tasks.
+            VIVID is a Versatile and Interactive VIdeo local eDiting model trained on VIVID-10M, which supports entity addition, modification, and deletion. 
+            At its core, a keyframe-guided interactive video editing mechanism is proposed, enabling users to iteratively edit keyframes and propagate it to other frames, thereby reducing latency in achieving desired outcomes.
+            Extensive experimental evaluations show that our approach achieves state-of-the-art performance in video local editing, surpassing baseline methods in both automated metrics and user studies. 
+            The VIVID-10M dataset and the VIVID editing model will be open-sourced. 
+        </p>
+
+        <div class="button-container" style="margin-top: 30px; margin-bottom: 100px;">
+            <button onclick="scrollToTop()" class="button">
+                <img src="asserts/icons/up-arrow.svg">
+                Learn more
+            </button>
+        </div>
+    </div>
+
+    <script src="js/base.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/sync_play.js"></script>
+</body>
+</html>
