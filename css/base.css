@@ -8,8 +8,8 @@ body {
 }
 @font-face {
     font-family: 'GeForce';
-    src: url('asserts/fonts/GeForce_Bold.otf') format('otf'),
-        url('asserts/fonts/GeForce_Light.otf') format('otf');
+    src: url('../asserts/fonts/GeForce_Bold.otf') format('opentype'),
+        url('../asserts/fonts/GeForce_Light.otf') format('opentype');
 }
 h1 {
     margin-top: 50px;
