@@ -43,6 +43,9 @@ h3 {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+video {
+    background-color: #1c253a;
+}
 p {
     margin-top: 10px;
     font-size: 1em;
@@ -154,6 +157,9 @@ p {
 .highlight {
     background-color: #1c253a; 
     padding-bottom: 30px;
+}
+.highlight video {
+    background-color: #131927;
 }
 .pc-only {
     display: block;
