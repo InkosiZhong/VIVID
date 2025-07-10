@@ -111,7 +111,7 @@ p {
     width: 20px;
     height: 20px;
 }
-.news {
+.news-container {
     padding: 20px;
     font-weight: bold;
     color: #EAF2FD;
@@ -127,12 +127,12 @@ p {
     max-width: 80%;
     text-align: left;
 }
-.news h3 {
+.news-container h3 {
     margin-bottom: 10px;
     padding: 0;
     margin: 0;
 }
-.news p {
+.news-container p {
     margin: 0;
     padding: 0;
 }
